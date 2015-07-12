@@ -133,6 +133,7 @@ charControl = "^" [:uppercase:]
 {decimal}{fractExponent}       { return FLOAT; }
 "\"\"\""                       { yybegin(BLOCK_STRINGS); return STRING; }
 "\""                           { yybegin(STRINGS); return STRING; }
+"'" "\\"? . "'"                { return STRING; }
 
 {identStart}{identLetter}*     { return IDENT; }
 {properName}                   { return PROPER_NAME; }
